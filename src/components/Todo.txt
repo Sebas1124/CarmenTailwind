@@ -1,0 +1,23 @@
+import { useState } from 'react';
+
+export default function Accordion({ title, children }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b">
+      <h2>
+        <button
+          type="button"
+          className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-700"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span>{title}</span>
+          <Icono que tu quieras/>
+        </button>
+      </h2>
+      <div className={`p-5 transition-all duration-500 ease-in-out ${isOpen ? 'block' : 'hidden'}`}>
+        {children}
+      </div>
+    </div>
+  );
+}
