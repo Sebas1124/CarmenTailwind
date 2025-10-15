@@ -1,14 +1,27 @@
+import { useState } from "react"
+import { AccordeonComponent } from "./components/AccordeonComponent"
 import { AdvancedCard } from "./components/AdvancedCard"
 import { AnimationComponent } from "./components/AnimationComponent"
 import { BackgroundsComponent } from "./components/BackgroundsComponent"
+import { BadgeComponent } from "./components/BadgeComponent"
 import { BotonGradient } from "./components/BotonGradient"
 import { LayoutResponsive } from "./components/LayoutResponsive"
 import { ShadowComponent } from "./components/ShadowComponent"
 import { SimpleCard } from "./components/SimpleCard"
 import { TextoComponent } from "./components/TextoComponent"
+import { TooltipComponent } from "./components/TooltipComponent"
+import { ModalComponent } from "./components/ModalComponent"
 
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 
 export const App = () => {
+
+  const [counter, setCounter] = useState(0);
+
+  const addProductToCart = () => {
+    setCounter(counter + 1);
+  }
+
   return (
     // xs: extra small
     // sm = small
@@ -55,16 +68,46 @@ export const App = () => {
         titulo={"El gato de sebas"}
         descripcion={"¡Peligo! Gato agresivo."}
         img={"https://i.pinimg.com/236x/05/49/86/05498664d54894f92c6523c50c1eb9e6.jpg"}
+        onClick={addProductToCart}
       />
 
       <SimpleCard
         titulo={"El gato de carmen"}
         descripcion={"¡Peligo! Gato agresivo."}
         img={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXwdKPHq5ZvBOH0nhh5EKQRCV_kg4ayZbrU62nuUkJsK4Dc1S2dKF85veYrmUMA8YDpWQ&usqp=CAU"}
+        onClick={addProductToCart}
       />
 
       {/* Card Avanzada */}
       <AdvancedCard/>
+
+      <AccordeonComponent
+        title={"Carmen"}
+        children={"Carmen le gusta volar"}
+      />
+      <AccordeonComponent
+        title={"Sebas"}
+        children={"Le gusta correr"}
+      />
+
+      <TooltipComponent
+        text={"Carmen"}
+        tooltipText={"Esta es la información adicional sobre Carmen."}
+      />
+
+      <BadgeComponent
+        icon={
+          <AddShoppingCartOutlinedIcon
+            fontSize="large"
+          />
+        }
+        number={counter}
+      />
+
+      <ModalComponent
+        title={"Este es el título del modal"}
+        content={"Este es el contenido del modal. Aquí puedes poner cualquier información que desees."}
+      />
 
     </div>
   )
