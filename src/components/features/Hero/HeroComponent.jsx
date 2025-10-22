@@ -8,9 +8,10 @@ export const HeroComponent = () => {
     >
         <div className="absolute z-0 -top-10 -left-10 rounded-full w-96 h-96 bg-gradient-to-br from-indigo-500 to-transparent opacity-30 -translate-x-1/3 -translate-y-1/3"></div>
 
-        <h1>Titulo</h1>
+        <h1 className="font-extrabold text-6xl ">Organiza tu caos.</h1>
+        <h1 className="font-extrabold text-6xl bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Alcanza la productividad.</h1>
 
-        <p>Cualquier cosa es valida</p>
+        <p className="text-lg text-gray-600">Quantum es la única herramienta que necesitas para gestionar tareas, notas y proyectos en un solo lugar. Simple, rápido e inteligente.</p>
 
         <HeroButton
             text={"Prueba gratis 14 días"}
